@@ -193,6 +193,11 @@ module Raf
       "<ruby><rb>#{@contents[0]}</rb><rp>(</rp><rt>#{@contents[1]}</rt><rp>)</rp></ruby>"
     end
   end
+  class Variable       < Element
+    def apply
+      "#{@contents}"
+    end
+  end
 
   class Footnote       < Element
     def apply
