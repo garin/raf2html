@@ -172,6 +172,11 @@ module Raf
       "<code>#{@contents.map{|c| c.apply}}</code>"
     end
   end
+  class Kbd       < Element
+    def apply
+      "<kbd>#{@contents.map{|c| c.apply}}</kbd>"
+    end
+  end
   class Verb       < Element
     def apply
       "#{@contents}"
