@@ -1,0 +1,6 @@
+# = raf2html.yaml.sample
+# css: "~/doc/howm/css/screen.css"
+# language: "en"
+# index: true
+# metadata: true
+# quiet: false
