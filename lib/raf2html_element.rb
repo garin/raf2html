@@ -167,7 +167,11 @@ module Raf
       "<del>#{@contents.map{|c| c.apply}}</del>"
     end
   end
-
+  class Code       < Element
+    def apply
+      "<code>#{@contents.map{|c| c.apply}}</code>"
+    end
+  end
   class Verb       < Element
     def apply
       "#{@contents}"
