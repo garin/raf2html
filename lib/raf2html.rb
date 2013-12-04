@@ -13,7 +13,7 @@ module Raf
       @debug = true
 
       # options
-      @css = File.open(options[:css]).readlines.to_s unless options[:css].nil?
+      @css = File.open(File.expand_path(options[:css])).readlines.to_s unless options[:css].nil?
       @language = options[:language]
       @index = options[:index]
       @metadata = options[:metadata]

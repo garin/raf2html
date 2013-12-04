@@ -3,15 +3,34 @@
 # Copyright (C) garin <garin54@gmail.com> 2011-2013
 # See the included file COPYING for details.
 $:.unshift File.join(File.dirname(__FILE__), "../lib")
+require "yaml"
 require "optparse"
 require "raf2html"
 
+# 設定ファイル
+CONFIG_FILE="~/.raf2html.yaml"
+config_file_path = File.expand_path(CONFIG_FILE)
+
+# デフォルトの設定値
+options = {:css => nil, :language => 'ja', :index => true, :quiet => false}
+
+# 設定ファイルの読み込み
+if File.exist?(config_file_path)
+  config = YAML.load_file( config_file_path )
+  if config
+    options.each do |key,val|
+      options[key.to_sym] = config[key.to_s] unless config[key.to_s].nil?
+    end
+  end
+end
+
+# 使い方
 def usage(opt)
   puts opt.help
   exit 0
 end
 
-options = {:css => nil, :language => 'ja', :index => true, :quiet => false}
+# コマンドラインオプション
 opt = OptionParser.new do |opt|
   opt.banner = "Usage: raf2html [options] file"
   opt.version = Raf::Raf2Html::VERSION
@@ -24,6 +43,9 @@ opt = OptionParser.new do |opt|
 end
 opt.parse!(ARGV)
 usage(opt) unless ARGV[0]
-src = File.open(ARGV[0],"r").readlines
-raf = Raf::Raf2Html.new(src, options)
-puts raf.to_html
+
+if __FILE__ == $0
+  src = File.open(ARGV[0],"r").readlines
+  raf = Raf::Raf2Html.new(src, options)
+  puts raf.to_html
+end
