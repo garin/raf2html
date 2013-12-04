@@ -44,8 +44,7 @@ end
 opt.parse!(ARGV)
 usage(opt) unless ARGV[0]
 
-if __FILE__ == $0
-  src = File.open(ARGV[0],"r").readlines
-  raf = Raf::Raf2Html.new(src, options)
-  puts raf.to_html
-end
+# main
+src = File.open(ARGV[0],"r").readlines
+raf = Raf::Raf2Html.new(src, options)
+puts raf.to_html
