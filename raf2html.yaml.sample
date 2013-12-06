@@ -9,6 +9,8 @@
 # == 設定項目
 # コンバート時にHTMLファイルに埋め込むスタイルシート(デフォルト:nil)
 # css: "~/raf2html.css"
+# コンバート時にHTMLファイルに埋め込むjavascript(デフォルト:nil)
+# js: nil
 # ドキュメントのフォーマット(デフォルト:ja)
 language: "ja"
 # 目次(index)を作成するかどうか(デフォルト: true)
