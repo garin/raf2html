@@ -20,7 +20,7 @@ module Raf
       @metadata = options[:metadata]
       @quiet = options[:quiet]
 
-      @raf = BlockParser.new
+      @raf = BlockParser.new(options)
       @metadata = setup_metadata
       @nodes = @raf.parse src
     end
