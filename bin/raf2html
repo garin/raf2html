@@ -12,7 +12,7 @@ CONFIG_FILE="~/.raf2html.yaml"
 config_file_path = File.expand_path(CONFIG_FILE)
 
 # デフォルトの設定値
-options = {:css => nil, :language => 'ja', :index => true, :quiet => false}
+options = {:css => nil, :js => nil, :language => 'ja', :index => true, :quiet => false}
 
 # 設定ファイルの読み込み
 if File.exist?(config_file_path)
@@ -36,10 +36,15 @@ opt = OptionParser.new do |opt|
   opt.version = Raf::Raf2Html::VERSION
   opt.release = Raf::Raf2Html::RELEASE
   opt.on("--css file", "スタイルシートのファイルを指定") {|f| options[:css] = f}
+  opt.on("-j", "--javascript file", "JavaScriptのファイルを指定") {|f| options[:js] = f}
   opt.on("-L", "--language LANG", "言語(デフォルトは #{options[:language]} 。ドキュメント側で指定されていればそちらを優先)"){|l| options[:language] = l}
   opt.on("--[no-]index", "目次を生成する(デフォルトは生成する)"){|v| options[:index] = v }
   opt.on("--[no-]metadata", "メタ情報を出力しない(デフォルトは出力する)"){|v| options[:metadata] = v }
   opt.on("-q","--quiet", "本文だけを出力する(ヘッダやフッタは出力しない)"){ options[:quiet] = true }
+  opt.on("-V","--parser-version", "使用する raf-parser のバージョンを表示"){
+    puts "raf-parser: #{Raf::VERSION} (#{Raf::RELEASE})"
+    exit 0
+  }
 end
 opt.parse!(ARGV)
 usage(opt) unless ARGV[0]

@@ -14,6 +14,7 @@ module Raf
 
       # options
       @css = File.open(File.expand_path(options[:css])).readlines.to_s unless options[:css].nil?
+      @js  = File.open(File.expand_path(options[:js])).readlines.to_s unless options[:js].nil?
       @language = options[:language]
       @index = options[:index]
       @metadata = options[:metadata]
@@ -116,6 +117,7 @@ module Raf
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 EOL
       str += css
+      str += javascript
       str += <<EOL
   <title>#{@metadata[:subject]}</title>
   </head>
@@ -128,13 +130,14 @@ EOL
     end
 
     def css
-#      str = <<EOL
-#<link href="screen.css" rel="stylesheet" type="text/css" media="screen" />
-#<link href="handheld.css" rel="stylesheet" type="text/css" media="handheld" />
-#<link href="print.css" rel="stylesheet" type="text/css" media="print" />
-      #EOL
       str = ""
-      str += %%<style type="text/css"><!--\n#{@css}\n--></style>\n% unless @css.nil?
+      str += %[<style type="text/css"><!--\n#{@css}\n--></style>\n] unless @css.nil?
+      str
+    end
+
+    def javascript
+      str = ""
+      str += %[<script type="text/javascript">#{@js}</script>\n] unless @js.nil?
       str
     end
 
