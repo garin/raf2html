@@ -54,7 +54,7 @@ module Raf
 
   class Quote < Element
     def apply
-      "<pre>#{CGI.escapeHTML(@contents.join)}</pre>\n"
+      %[<pre class="prettyprint linenums">#{CGI.escapeHTML(@contents.join)}</pre>\n]
     end
   end
 
