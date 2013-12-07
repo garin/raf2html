@@ -42,6 +42,7 @@ opt = OptionParser.new do |opt|
   opt.on("--[no-]metadata", "メタ情報を出力しない(デフォルトは出力する)"){|v| options[:metadata] = v }
   opt.on("-q","--quiet", "本文だけを出力する(ヘッダやフッタは出力しない)"){ options[:quiet] = true }
   opt.on("-s","--suffix str", "リンクURIのサッフィクス(デフォルト .html)"){|s| options[:suffix] = s }
+  opt.on("--custom_element file", "エレメントのカスタマイズ用ファイル)"){|f| options[:custom_element] = f }
   opt.on("-V","--parser-version", "使用する raf-parser のバージョンを表示"){
     puts "raf-parser: #{Raf::VERSION} (#{Raf::RELEASE})"
     exit 0

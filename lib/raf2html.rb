@@ -20,9 +20,15 @@ module Raf
       @metadata = options[:metadata]
       @quiet = options[:quiet]
 
+      get_customized_element(options[:custom_element]) unless options[:custom_element].nil?
       @raf = BlockParser.new(options)
       @metadata = setup_metadata
       @nodes = @raf.parse src
+    end
+
+    # エレメントのカスタム用ファイルを読み込む
+    def get_customized_element(file)
+      require File.expand_path(file)
     end
 
     def setup_metadata
