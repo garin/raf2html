@@ -136,7 +136,7 @@ module Raf
   class Label < Element
     # @contents = [label, title]
     def apply
-      "<a href='##{@contents[0]}' id='#{@contents[0]}'>#{@contents[1]}</a>"
+      %[<a name="#{@contents[0]}" id="#{@contents[0]}">#{@contents[1]}</a>]
     end
   end
 
