@@ -140,6 +140,13 @@ module Raf
     end
   end
 
+  class LabelLink < Element
+    # @contents = [label, title]
+    def apply
+      %[<a href="##{@contents[0]}">#{@contents[1]}</a>]
+    end
+  end
+
   class Reference < Element
     def apply
       %[<a href="#{@contents[1]}" title="#{@contents[1]}">#{@contents[0]}</a>]
