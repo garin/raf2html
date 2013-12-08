@@ -13,14 +13,14 @@ module Raf
       @debug = true
 
       # options
-      @css = File.open(File.expand_path(options[:css])).readlines.to_s unless options[:css].nil?
-      @js  = File.open(File.expand_path(options[:js])).readlines.to_s unless options[:js].nil?
+      @css = File.open(File.expand_path(options[:css])).readlines.to_s unless options[:css].empty?
+      @js  = File.open(File.expand_path(options[:js])).readlines.to_s unless options[:js].empty?
       @language = options[:language]
       @index = options[:index]
       @metadata = options[:metadata]
       @quiet = options[:quiet]
 
-      get_customized_element(options[:custom_element]) unless options[:custom_element].nil?
+      get_customized_element(options[:custom_element]) unless options[:custom_element].empty?
       @raf = BlockParser.new(options)
       @metadata = setup_metadata
       @nodes = @raf.parse src
