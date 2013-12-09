@@ -212,9 +212,19 @@ module Raf
     end
   end
 
-  class Image       < Element
+  class Media       < Element
     def apply
-      "<img src='#{@contents}' />"
+      # @contents = [Name, Mime::MediaType, Mime::SubType]
+      case @contents[1]
+      when 'image'
+        %[<a href="#{@contents[0]}"><img src="#{@contents[0]}" alt="#{@contents[0]}" class="img-rounded img-responsive" /></a>]
+      when 'video'
+        %[<video src="#{@contents[0]}" controls></video>]
+      when 'audio'
+        %[<audio src="#{@contents[0]}" controls></audio>]
+      else
+        %[<a href="#{@contents[0]}">#{@contents[0].split("/").last}</a>]
+      end
     end
   end
 end
