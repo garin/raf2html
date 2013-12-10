@@ -61,7 +61,7 @@ module Raf
         next if h[:level] == 1 or h[:level] == 6
 
         if h[:level] == 5
-          str += "<div class=><a href='#raf-head#{h[:level]}-#{i+1}'><span class='space' />#{h[:title]}</a></div>\n"
+          str += %[<div class="nonum"><a href="#raf-head#{h[:level]}-#{i+1}"><span class="space" />#{h[:title]}</a></div>\n]
         else
           str += index_terminate(h[:level], level_pre)
           str += "<li><a href='#raf-head#{h[:level]}-#{i+1}'>#{h[:index]}#{h[:title]}</a>\n"
@@ -94,7 +94,7 @@ module Raf
       str = "<div id='raf-metadata'>"
       str += %[<div>#{CGI.escapeHTML(@metadata[:description])}</div>] unless @metadata[:description].nil?
       str += %[<ul class="list-inline">]
-      %w{ creator date update publisher version contributer revision tag }.each do |m|
+      %w{ author create update publisher version tag }.each do |m|
         str += %[<li><strong>#{m}</strong>:#{CGI.escapeHTML(@metadata[m.to_sym])}</li>] unless @metadata[m.to_sym].nil?
       end
       str += "</ul>"
