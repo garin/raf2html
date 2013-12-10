@@ -192,7 +192,7 @@ module Raf
 
   class Manuedo       < Element
     def apply
-      "<span class='manuedo'>/#{@contents.map{|c| c.apply}}/</span>"
+      %{<span class="manuedo">[#{@contents.map{|c| c.apply}}]</span>}
     end
   end
   class Ruby       < Element
