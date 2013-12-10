@@ -35,15 +35,15 @@ opt = OptionParser.new do |opt|
   opt.banner = "Usage: raf2html [options] file"
   opt.version = Raf::Raf2Html::VERSION
   opt.release = Raf::Raf2Html::RELEASE
-  opt.on("-c", "--css file", "スタイルシートのファイルを指定") {|f| options[:css] = f}
-  opt.on("-j", "--javascript file", "JavaScriptのファイルを指定") {|f| options[:js] = f}
+  opt.on("-c", "--css file", "HTMLに埋め込むスタイルシートを指定") {|f| options[:css] = f}
+  opt.on("-j", "--javascript file", "HTMLに埋め込むJavaScriptを指定") {|f| options[:js] = f}
   opt.on("-L", "--language LANG", "言語(デフォルトは #{options[:language]} 。ドキュメント側で指定されていればそちらを優先)"){|l| options[:language] = l}
   opt.on("--[no-]index", "目次を生成する(デフォルトは生成する)"){|v| options[:index] = v }
   opt.on("--[no-]metadata", "メタ情報を出力しない(デフォルトは出力する)"){|v| options[:metadata] = v }
   opt.on("-q","--quiet", "本文だけを出力する(ヘッダやフッタは出力しない)"){ options[:quiet] = true }
-  opt.on("-s","--extension string", "リファレンス記法で「.%」で置換する拡張子(デフォルト .html)"){|s| options[:extension] = s }
+  opt.on("-s","--extension string", "リファレンス記法で「.%」を置換する拡張子(デフォルト .html)"){|s| options[:extension] = s }
   opt.on("-m", "--media_directory directory", "画像や動画などのメディアファイルを配置する基底ディレクトリ"){|d| options[:media_directory] = d }
-  opt.on("--custom_element file", "エレメントのカスタマイズ用ファイル)"){|f| options[:custom_element] = f }
+  opt.on("--custom_element file", "HTMLタグをカスタマイズするためのRubyファイル)"){|f| options[:custom_element] = f }
   opt.on("-V","--parser-version", "使用する raf-parser のバージョンを表示"){
     puts "raf-parser: #{Raf::VERSION} (#{Raf::RELEASE})"
     exit 0
