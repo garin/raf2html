@@ -1,3 +1,19 @@
+== 0.0.8 (2013-12-10)
+* new: Reference の 拡張子書式(.%) に対応(@options[:extension])
+* new: LabelLink エレメントに対応
+* new: エレメント(タグ)をカスタマイズできる機能を追加
+* new: スタイルシート指定のオプション(--css)にショートネーム(-c)を追加
+* new: javascript を読み込むコマンドラインオプションを追加
+* new: Quote クラスに出力に google prettify のコードを追加
+* change: IMAGE エレメントを廃止して、MEDIA エレメントに対応
+* change: メタデータの項目を変更
+* change: manuedo の出力フォーマットを変更
+* change: css, javascript, custom_element オプションのデフォルト値を nil から ""(empty) に変更
+* fix: Label エレメントのリンクが name ではなく href になっていたのを修正
+
+== 0.0.7 (2013-12-05)
+* Variable に対応
+
 == 0.0.6 (2013-12-05)
 * 設定ファイル(~/.raf2html.yaml)を追加
 

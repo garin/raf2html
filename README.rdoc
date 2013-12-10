@@ -1,27 +1,32 @@
 = raf2html
-"raf2html" is raf(simple document format) convert to HTML format.
-refer to : http://garin.jp/doc/raf/raf (this page is japanese)
+"raf2html" is raf document convert to HTML.
 
-== INSTALLATION
-  // check ruby version
-  $ ruby -v
-  ruby 2.0.0p353 (2013-11-22 revision 43784) [x86_64-linux]
+== Require
+* ruby-2.0.0p353 or later
 
-  // raf2html gem package install
+== Installation
+  // package install
   $ gem install raf2html
 
-== UTILITIES
-=== raf2html
-raf format to HTML format conveter.
+== Getting Started
+=== Edit raf document
 
-+ Usage
-  // edit
   $ vi mydoc.raf
   = This is My document
   raf is simple document format.
 
-  // to html
-  $ raf2html mydoc.raf > mydoc.html
+format manutal : http://garin.jp/doc/raf/raf (this page is japanese)
+
+=== to HTML
+  $ raf2html mydoc.raf
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  ...
+  <h1>This is My document</h1> ...
+  <p>raf is simple document format.<br /></p>
+  ...
+
+=== Print Help
+  $ raf2html --help
 
 == Read more
 Official Web Site : http://garin.jp/doc/raf/raf (this page is japanese)
