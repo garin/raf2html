@@ -32,7 +32,13 @@ end
 
 # コマンドラインオプション
 opt = OptionParser.new do |opt|
-  opt.banner = "Usage: raf2html [options] file"
+  opt.banner = <<EOL
+*** IMPORTANT ***
+raf project renamed to mok.
+see: https://github.com/garin/mok
+
+Usage: raf2html [options] file
+EOL
   opt.version = Raf::Raf2Html::VERSION
   opt.release = Raf::Raf2Html::RELEASE
   opt.on("-c", "--css file", "HTMLに埋め込むスタイルシートを指定") {|f| options[:css] = f}

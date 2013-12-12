@@ -1,3 +1,7 @@
+== 0.0.9 (2013-12-12)
+* project finished.
+* rename to mok (https://github.com/garin/mok)
+
 == 0.0.8 (2013-12-10)
 * new: Reference の 拡張子書式(.%) に対応(@options[:extension])
 * new: LabelLink エレメントに対応
